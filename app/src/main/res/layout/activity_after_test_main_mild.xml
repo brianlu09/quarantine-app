@@ -1,39 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AfterTestMainMild"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/header_main"
+        layout="@layout/header" />
 
     <TextView
-        android:id="@+id/mildText"
+        android:id="@+id/riskscore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/semibold"
         android:gravity="center"
+        android:text="@string/risk_score"
+        android:textColor="@color/blue_text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_main" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mild"
+        android:fontFamily="@font/extrabold"
+        android:textSize="30sp"
+        android:textColor="@color/mild_blue"
+        app:layout_constraintBottom_toTopOf="@+id/mild_circle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/mild_circle"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:background="@drawable/mild_circle"
+        android:fontFamily="@font/semibold"
+        android:gravity="center"
+        android:textColor="@color/mild_blue"
+        android:textSize="80sp"
+        app:layout_constraintBottom_toTopOf="@+id/breakdown_image"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/riskscore" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@color/blue_text"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/breakdown_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mild_circle" />
+
+    <TextView
+        android:id="@+id/breakdown_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/breakdown"
+        android:gravity="center"
+        android:textColor="@color/blue_text"
+        android:textSize="24sp"
+        android:fontFamily="@font/semibold"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/breakdown_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mild_circle"
+        />
+    <ImageView
+        android:id="@+id/breakdown_image"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="32dp"
+        android:contentDescription="@string/heart_description"
+        app:srcCompat="@drawable/breakdown"
+        app:layout_constraintBottom_toTopOf="@+id/test_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.424"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breakdown_text"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <TextView
+        android:id="@+id/test_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue_text"
+        android:fontFamily="@font/regular"
+        android:text="@string/mild_description"
+        android:textSize="16sp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/mild_retake"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.424"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breakdown_image" />
+
+    <Button
+        android:id="@+id/mild_retake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/green_rounded_button"
+        android:padding="16dp"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAllCaps="false"
+        android:fontFamily="@font/regular"
+        android:text="@string/retake_quiz"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/logout_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.203"
-        android:textIsSelectable="true" />
-
+        app:layout_constraintTop_toBottomOf="@+id/test_description" />
 
     <Button
-        android:id="@+id/homeBtnMild"
+        android:id="@+id/logout_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next"
+        android:layout_margin="16dp"
+        android:onClick="logout"
+        android:text="@string/logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mild_retake"
+        app:layout_constraintVertical_bias="0.506" />
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
