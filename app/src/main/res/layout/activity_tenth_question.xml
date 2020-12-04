@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/deep_blue"
-    tools:context=".FifthQuestion"
+    tools:context=".TenthQuestion"
     android:orientation="vertical">
 
     <include layout="@layout/header" />
 
     <TextView
-        android:id="@+id/questionFive"
+        android:id="@+id/questionTen"
         android:background="@drawable/rounded_button"
         android:textColor="@color/deep_blue"
         android:fontFamily="@font/semibold"
@@ -25,7 +25,7 @@
         android:textIsSelectable="true" />
 
     <ListView
-        android:id="@+id/LVAnswers5"
+        android:id="@+id/LVAnswers10"
         android:listSelector="@drawable/list_view_selector"
         android:fontFamily="@font/semibold"
         android:dividerHeight="20dp"
@@ -37,7 +37,7 @@
         android:layout_weight="0"/>
 
     <Button
-        android:id="@+id/nextBtn5"
+        android:id="@+id/nextBtn10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/regular"

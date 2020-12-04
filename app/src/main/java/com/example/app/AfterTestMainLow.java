@@ -1,12 +1,12 @@
 package com.example.app;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AfterTestMainLow extends AppCompatActivity {
     private TextView lowText;
@@ -16,16 +16,17 @@ public class AfterTestMainLow extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_test_main_low);
 
-        lowText = (TextView) findViewById(R.id.lowText);
-        lowText.setText(UserData.getInstance().getScore());
+        lowText = (TextView) findViewById(R.id.low_circle);
+        lowText.setText(String.valueOf(UserData.getInstance().getScore()));
 
         //Next question button
-        homeBtnLow = (Button)findViewById(R.id.homeBtnLow);
+        homeBtnLow = (Button)findViewById(R.id.low_retake);
         //next question button
         homeBtnLow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                UserData.getInstance().resetScore();
+                startActivity(new Intent(getApplicationContext(),FirstQuestion.class));
             }
         });
     }
