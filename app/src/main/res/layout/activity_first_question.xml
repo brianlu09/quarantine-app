@@ -1,71 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstQuestion">
+    android:background="@color/deep_blue"
+    tools:context=".FirstQuestion"
+    android:orientation="vertical">
+
+    <include layout="@layout/header" />
 
     <TextView
         android:id="@+id/questionOne"
-        android:layout_width="0dp"
+        android:background="@drawable/rounded_button"
+        android:textColor="@color/deep_blue"
+        android:fontFamily="@font/semibold"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_margin="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         android:gravity="center"
-        android:text="Do you wear a mask each time you head outside?"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.203" />
+        android:textSize="24sp"
+        android:textIsSelectable="true" />
 
-    <Button
-        android:id="@+id/answerBtn1"
-        android:layout_width="wrap_content"
+    <ListView
+        android:id="@+id/LVAnswers1"
+        android:listSelector="@drawable/list_view_selector"
+        android:fontFamily="@font/semibold"
+        android:dividerHeight="20dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="Never"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionOne"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/answerBtn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Only if its crowded"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answerBtn1"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/answerBtn3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Always"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answerBtn2"
-        app:layout_constraintVertical_bias="0.0" />
+        android:divider="@color/deep_blue"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:layout_weight="0"/>
 
     <Button
         android:id="@+id/nextBtn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"
-        android:onClick="nextQuestion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answerBtn3" />
+        android:fontFamily="@font/regular"
+        android:textSize="22sp"
+        android:text="@string/next"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:background="@drawable/teal_rounded_button"
+        android:layout_gravity="right"
+        android:layout_weight="0"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
